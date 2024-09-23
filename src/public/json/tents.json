@@ -20,7 +20,8 @@
       "Name": "Marmot"
     },
     "ListPrice": 199.99,
-    "FinalPrice": 199.99
+    "FinalPrice": 199.99,
+    "ProductPage": "../product_pages/marmot-ajax-3.html"
   },
   {
     "Id": "985RF",
@@ -42,7 +43,8 @@
       "Name": "The North Face"
     },
     "ListPrice": 199.99,
-    "FinalPrice": 199.99
+    "FinalPrice": 199.99,
+    "ProductPage": "../product_pages/northface-talus-4.html"
   },
   {
     "Id": "989CG",
@@ -86,7 +88,8 @@
       "Name": "The North Face"
     },
     "ListPrice": 349.99,
-    "FinalPrice": 349.99
+    "FinalPrice": 349.99,
+    "ProductPage": "../product_pages/northface-alpine-3.html"
   },
   {
     "Id": "880RT",
@@ -132,6 +135,7 @@
       "Name": "Cedar Ridge"
     },
     "ListPrice": 69.99,
-    "FinalPrice": 69.99
+    "FinalPrice": 69.99,
+    "ProductPage": "../product_pages/cedar-ridge-rimrock-2.html"
   }
 ]
