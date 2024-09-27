@@ -15,18 +15,26 @@ export function setLocalStorage(key, data) {
 }
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
+  qs(selector).addEventListener('touchend', (event) => {
     event.preventDefault();
     callback();
   });
-  qs(selector).addEventListener("click", callback);
+  qs(selector).addEventListener('click', callback);
 }
 
 export function convertToJson(res) {
   if (res.ok) {
     return res.json();
   } else {
-    throw new Error("Bad Response");
+    throw new Error('Bad Response');
+  }
+}
+
+export function renderListWithTemplate(templateFn, parentElement, list, position='afterbegin', clear=false){
+  const htmlTemplate = list.map(templateFn);
+  if(htmlTemplate!=null){
+    if(clear){ parentElement.innerHTML=''; }
+    parentElement.insertAdjacentHTML(position, htmlTemplate.join(''));
   }
 }
 
