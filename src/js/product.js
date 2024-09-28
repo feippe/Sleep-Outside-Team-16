@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, getParam, qs } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, getParam, qs, renderSuperscript } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
@@ -17,6 +17,7 @@ function addProductToCart(product) {
 async function addToCartHandler(e) {
   const product = await dataSource.findProductById(e.target.dataset.id);
   addProductToCart(product);
+  renderSuperscript();
 }
 
 async function loadingDetailsToPage(id) {
@@ -39,6 +40,7 @@ async function loadingDetailsToPage(id) {
   qs(".product-detail .product__description").innerHTML =
     details.DescriptionHtmlSimple;
   qs("#addToCart").setAttribute("data-id", details.Id);
+  renderSuperscript();
 }
 
 // add listener to Add to Cart button

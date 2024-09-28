@@ -47,3 +47,16 @@ export function getParam(param){
   const urlParams = new URLSearchParams(queryString);
   return urlParams.get(param);
 }
+
+export function renderSuperscript() {
+  const cart = document.querySelector(".cart a");
+  let cartQty = getLocalStorage("so-cart").length;
+  let sup = cart.querySelector("sup");
+  if (!sup) {
+    // Si no existe, crea nuevo <sup>
+    sup = document.createElement("sup");
+    cart.insertBefore(sup, cart.lastChild);
+  }
+  // Actualiza el contenido del <sup>
+  sup.innerHTML = cartQty;
+}

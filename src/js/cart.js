@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, qs, qsa } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, qs, qsa, renderSuperscript } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -11,6 +11,7 @@ function renderCartContents() {
     });
   });
   showTotal(cartItems);
+  renderSuperscript();
 }
 
 function showTotal(cartItems) {
