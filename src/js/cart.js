@@ -1,9 +1,21 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, qs } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  showTotal(cartItems);
+}
+
+function showTotal(cartItems) {
+  if (cartItems.length > 0) {
+    qs(".cart-footer").classList.remove("hide");
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.FinalPrice;
+    });
+    qs(".cart-footer .cart-total").textContent = `Total: $${total}`;
+  }
 }
 
 function cartItemTemplate(item) {
