@@ -242,3 +242,24 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+
+
+section.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+section.categories .category {
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+}
+section.categories .category img {
+  width: calc(100% - 32px);
+  margin: 0 16px;
+}
+
+section.categories .category span {
+  font-size: 14px;
+  font-weight: bold;
+}
