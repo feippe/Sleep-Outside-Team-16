@@ -51,3 +51,16 @@ export function getParam(param){
 export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+export function renderSuperscript() {
+  const cart = document.querySelector(".cart a");
+  let cartQty = getLocalStorage("so-cart").length;
+  let sup = cart.querySelector("sup");
+  if (!sup) {
+    // Si no existe, crea nuevo <sup>
+    sup = document.createElement("sup");
+    cart.insertBefore(sup, cart.lastChild);
+  }
+  // Actualiza el contenido del <sup>
+  sup.innerHTML = cartQty;
+}

@@ -110,6 +110,19 @@ button {
   fill: gray;
 }
 
+.cart a {
+  text-decoration: none;
+}
+
+.cart sup {
+  padding: 1px 4px;
+  background-color: orange;
+  position: relative;
+  margin-left: -5px;
+  margin-top: -5px;
+  border-radius: 100%;
+}
+
 /* End cart icon styles */
 
 .mission {
