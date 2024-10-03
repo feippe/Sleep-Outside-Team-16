@@ -47,3 +47,7 @@ export function getParam(param){
   const urlParams = new URLSearchParams(queryString);
   return urlParams.get(param);
 }
+
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
