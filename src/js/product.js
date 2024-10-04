@@ -17,7 +17,6 @@ function addProductToCart(product) {
 async function addToCartHandler(e) {
   const product = await dataSource.findProductById(e.target.dataset.id);
   addProductToCart(product);
-  renderSuperscript();
 }
 
 async function loadingDetailsToPage(id) {
