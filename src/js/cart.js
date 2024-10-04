@@ -19,7 +19,9 @@ function showTotal(cartItems) {
     qs(".cart-footer").classList.remove("hide");
     let total = 0;
     cartItems.forEach((item) => {
-      total += item.FinalPrice;
+      if(item!==null){
+        total += item.FinalPrice;
+      }
     });
     qs(".cart-footer .cart-total").textContent = `Total: $${total}`;
   } else {
@@ -40,10 +42,12 @@ function removeFromCart(id) {
 }
 
 function cartItemTemplate(item) {
+  if(item===null){ return null; }
+  console.log(item);
   const newItem = `<li class='cart-card divider'>
   <a href='#' class='cart-card__image'>
     <img
-      src='${item.Image}'
+      src='${item.Images.PrimarySmall}'
       alt='${item.Name}'
     />
   </a>
@@ -55,7 +59,6 @@ function cartItemTemplate(item) {
   <p class='cart-card__price'>$${item.FinalPrice}</p>
   <span class='cart-card__remove' data-id='${item.Id}'>X</span>
 </li>`;
-
   return newItem;
 }
 
