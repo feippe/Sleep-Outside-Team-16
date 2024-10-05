@@ -2,10 +2,9 @@ import ProductData from "./ProductData.mjs";
 import ProductListing from "./ProductListing.mjs";
 import { qs, getParam } from "./utils.mjs";
 
-
-const category = getParam('category');
+const category = getParam("category");
 const dataSource = new ProductData();
-const listElement = qs('.product-list');
+const listElement = qs(".product-list");
 const myList = new ProductListing(category, dataSource, listElement);
 myList.init();
 

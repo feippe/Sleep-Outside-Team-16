@@ -243,8 +243,6 @@ footer {
   padding: 1em;
 }
 
-
-
 section.categories {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -264,11 +262,9 @@ section.categories .category span {
   font-weight: bold;
 }
 
-
-
 .product-card p.product-card__price-before {
   font-size: 14px;
-  text-decoration:line-through;
+  text-decoration: line-through;
   color: red;
   margin-bottom: 0;
 }

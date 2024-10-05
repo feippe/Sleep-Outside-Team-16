@@ -1,6 +1,6 @@
 import ProductData from "./ProductData.mjs";
 import ProductListing from "./ProductListing.mjs";
-import { qs, renderSuperscript, loadHeaderFooter } from "./utils.mjs";
+import { qs, loadHeaderFooter } from "./utils.mjs";
 
 let listElement = qs(".product-list");
 
