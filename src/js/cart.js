@@ -1,4 +1,10 @@
-import { getLocalStorage, setLocalStorage, qs, qsa, renderSuperscript } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  qs,
+  qsa,
+  renderSuperscript,
+} from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -19,7 +25,7 @@ function showTotal(cartItems) {
     qs(".cart-footer").classList.remove("hide");
     let total = 0;
     cartItems.forEach((item) => {
-      if(item!==null){
+      if (item !== null) {
         total += item.FinalPrice;
       }
     });
@@ -42,8 +48,9 @@ function removeFromCart(id) {
 }
 
 function cartItemTemplate(item) {
-  if(item===null){ return null; }
-  console.log(item);
+  if (item === null) {
+    return null;
+  }
   const newItem = `<li class='cart-card divider'>
   <a href='#' class='cart-card__image'>
     <img

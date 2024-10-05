@@ -1,4 +1,10 @@
-import { setLocalStorage, getLocalStorage, getParam, qs, renderSuperscript } from "./utils.mjs";
+import {
+  setLocalStorage,
+  getLocalStorage,
+  getParam,
+  qs,
+  renderSuperscript,
+} from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
