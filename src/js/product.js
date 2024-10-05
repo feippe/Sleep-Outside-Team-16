@@ -13,28 +13,11 @@ const dataSource = new ProductData("tents");
 
 function addProductToCart(product) {
   let list = getLocalStorage("so-cart");
-  if (list == null || list.length == 0) {
+  if (list == null) {
     list = [];
-    product.quantity = 1;
-    list.push(product);
-  } else {
-    let productExists = false;
-    list.forEach(item => {
-      // product exists
-      if (item.Id === product.Id) {
-        item.quantity += 1;
-        productExists = true;
-      }
-    });
-
-    // product doesn't exists
-    if (!productExists) {
-      product.quantity = 1;
-      list.push(product);
-    }
   }
+  list.push(product);
   setLocalStorage("so-cart", list);
-  renderSuperscript()
 }
 
 // add to cart button event handler

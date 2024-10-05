@@ -6,7 +6,6 @@ export default class ProductDetails {
         this.category = category;
         this.path = `../json/${this.category}.json`;
         this.details = {};
-        this.quantity;
     }
     async getData() {
         return fetch(this.path)
