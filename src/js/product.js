@@ -4,6 +4,7 @@ import {
   getParam,
   qs,
   renderSuperscript,
+  formattedDecimals,
 } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
@@ -35,8 +36,10 @@ async function loadingDetailsToPage(id) {
   qs(".product-detail h2").textContent = details.NameWithoutBrand;
   qs(".product-detail img").setAttribute("src", details.Image);
   qs(".product-detail img").setAttribute("alt", details.Name);
-  qs(".product-detail .product-card__price").textContent =
-    `$${details.FinalPrice}`;
+  qs(".product-detail .product-card__price-before").innerHTML =
+    `$${formattedDecimals(details.SuggestedRetailPrice)}`;
+  qs(".product-detail .product-card__price").innerHTML =
+    `$${formattedDecimals(details.FinalPrice)}<span class="product-card__price-tag">${Math.round((details.FinalPrice * 100) / details.SuggestedRetailPrice)}% OFF</span>`;
   details.Colors.forEach((color) => {
     let colorElement = document.createElement("span");
     colorElement.textContent = color.ColorName;

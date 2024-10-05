@@ -262,12 +262,15 @@ section.categories .category span {
   font-weight: bold;
 }
 
+.product-detail p.product-card__price-before,
 .product-card p.product-card__price-before {
   font-size: 14px;
   text-decoration: line-through;
   color: red;
   margin-bottom: 0;
 }
+
+.product-detail p.product-card__price,
 .product-card p.product-card__price {
   margin-top: 0;
   display: inline-block;
@@ -275,6 +278,8 @@ section.categories .category span {
   font-weight: bold;
   font-size: 22px;
 }
+
+.product-detail p.product-card__price .product-card__price-tag,
 .product-card p.product-card__price .product-card__price-tag {
   display: inline-block;
   position: absolute;
