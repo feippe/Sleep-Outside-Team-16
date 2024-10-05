@@ -81,3 +81,11 @@ export function renderSuperscript() {
   // Actualiza el contenido del <sup>
   sup.innerHTML = cartQty;
 }
+
+export function formattedDecimals(number){
+  let val = number.toFixed(2);
+  val = val.toString();
+  val = val.split('.');
+  val = val[0]+"<decimals>."+val[1]+"</decimals>";
+  return val;
+}
