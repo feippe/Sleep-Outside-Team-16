@@ -263,3 +263,34 @@ section.categories .category span {
   font-size: 14px;
   font-weight: bold;
 }
+
+
+
+.product-card p.product-card__price-before {
+  font-size: 14px;
+  text-decoration:line-through;
+  color: red;
+  margin-bottom: 0;
+}
+.product-card p.product-card__price {
+  margin-top: 0;
+  display: inline-block;
+  color: green;
+  font-weight: bold;
+  font-size: 22px;
+}
+.product-card p.product-card__price .product-card__price-tag {
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+  font-size: 12px;
+  background-color: #f95749;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  margin-top: 2px;
+}
+
+decimals {
+  font-size: smaller;
+}
