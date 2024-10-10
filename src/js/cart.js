@@ -26,7 +26,7 @@ function showTotal(cartItems) {
     let total = 0;
     cartItems.forEach((item) => {
       if (item !== null) {
-        total += (item.quantity*item.FinalPrice);
+        total += item.quantity * item.FinalPrice;
       }
     });
     qs(".cart-footer .cart-total").textContent = `Total: $${total}`;
