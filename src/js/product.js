@@ -19,7 +19,7 @@ function addProductToCart(product) {
     list.push(product);
   } else {
     let productExists = false;
-    list.forEach(item => {
+    list.forEach((item) => {
       // product exists
       if (item.Id === product.Id) {
         item.quantity += 1;
@@ -34,7 +34,7 @@ function addProductToCart(product) {
     }
   }
   setLocalStorage("so-cart", list);
-  renderSuperscript()
+  renderSuperscript();
 }
 
 // add to cart button event handler
