@@ -295,3 +295,88 @@ section.categories .category span {
 decimals {
   font-size: smaller;
 }
+
+/*CHECKOUT*/
+.order-summary {
+  background-color: #efefef;
+  padding: 16px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 14px;
+  max-width: calc(200px + 32px);
+}
+.order-summary-line {
+  display: inline-block;
+  width: 200px;
+}
+.order-summary-line:last-of-type {
+  font-weight: bold;
+  border-top: solid 1px #666;
+  padding-top: 4px;
+  margin-top: 4px;
+}
+.order-summary-line-description {
+  float: left;
+  width: 120px;
+}
+.order-summary-line-value {
+  float: right;
+  text-align: right;
+  width: 72px;
+}
+#form-checkout fieldset {
+  border: solid 1px #ccc;
+  margin: 8px 8px 0 8px;
+  border-radius: 4px;
+  max-width: 600px;
+}
+#form-checkout fieldset {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 8px;
+}
+#form-checkout fieldset label {
+  font-size: 14px;
+}
+#form-checkout fieldset label input {
+  width: 100%;
+  padding: 8px 16px;
+  border: solid 1px #777;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 4px;
+}
+#form-checkout fieldset label span {
+  display: block;
+}
+#form-checkout fieldset label input#txtExpirationDateMonth {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+  padding: 8px 0;
+}
+#form-checkout fieldset label input#txtExpirationDateYear {
+  display: inline-block;
+  width: 70px;
+  text-align: center;
+  padding: 8px 0;
+}
+#form-checkout fieldset label input#txtSecurityCode {
+  display: block;
+  width: 70px;
+  text-align: center;
+  padding: 8px 0;
+}
+
+#btnFormSubmit {
+  border: none;
+  background-color: #525b0f;
+  color: #fff;
+  padding: 8px 32px;
+  border-radius: 4px;
+  margin: 16px 8px;
+  cursor: pointer;
+}
+#btnFormSubmit:hover {
+  background-color: #636c1f;
+}

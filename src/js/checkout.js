@@ -2,8 +2,8 @@ import { qs, loadHeaderFooter } from "./utils.mjs";
 import CheckoutProcess from "./CheckoutProcess.mjs";
 
 function sendForm(checkout) {
-  const url = "http://server-nodejs.cit.byui.edu:3000/checkout/";
-
+  const url = "//server-nodejs.cit.byui.edu:3000/checkout/";
+  console.log(`send to: ${url}`);
   const firstName = qs("#txtFirstName").value;
   const lastName = qs("#txtLastName").value;
   const streetAddress = qs("#txtStreetAddress").value;
@@ -55,4 +55,7 @@ loadHeaderFooter();
 let checkout = new CheckoutProcess();
 qs("#order-summary").innerHTML = checkout.html;
 
-qs("#btnFormSubmit").addEventListener("click", sendForm(checkout));
+qs("#btnFormSubmit").addEventListener("click", function (event) {
+  event.preventDefault();
+  sendForm(checkout);
+});

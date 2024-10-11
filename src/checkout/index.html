@@ -62,16 +62,18 @@
                 id="txtCreditCardNumber"
                 type="number"
                 value="1234123412341234"
+                maxlength="16"
                 required
               />
             </label>
             <label>
-              Expiration date
+              <span>Expiration date</span>
               <input
                 id="txtExpirationDateMonth"
                 type="number"
                 value="05"
                 placeholder="Month"
+                maxlength="2"
                 required
               />
               <input
@@ -79,12 +81,19 @@
                 type="number"
                 value="2026"
                 placeholder="Year"
+                maxlength="4"
                 required
               />
             </label>
             <label>
               Security code
-              <input id="txtSecurityCode" type="number" value="123" required />
+              <input
+                id="txtSecurityCode"
+                type="number"
+                value="123"
+                maxlength="3"
+                required
+              />
             </label>
           </fieldset>
 
