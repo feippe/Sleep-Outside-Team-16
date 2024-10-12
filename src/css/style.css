@@ -122,6 +122,9 @@ button {
   margin-top: -5px;
   border-radius: 100%;
 }
+.button-panels {
+  display: none;
+}
 
 /* End cart icon styles */
 
@@ -379,4 +382,35 @@ decimals {
 }
 #btnFormSubmit:hover {
   background-color: #636c1f;
+}
+
+/*THANK YOU PAGE*/
+.thank-you-page {
+  text-align: center;
+}
+.thank-you-page h1 {
+  color: green;
+}
+
+/*ALERT MESSAGE*/
+.alertMessage {
+  width: calc(100% - 16px);
+  display: grid;
+  grid-template-columns: calc(100% - 30px) 30px;
+  margin: 8px auto 0 auto;
+  border-radius: 4px;
+  background-color: #ff8a54;
+  font-size: 14px;
+}
+.alertMessage-value {
+  padding: 8px 0 8px 16px;
+  color: #fff;
+}
+.alertMessage-close {
+  text-align: center;
+  padding-top: 8px;
+  cursor: pointer;
+}
+.alertMessage-close:hover {
+  color: #fff;
 }
