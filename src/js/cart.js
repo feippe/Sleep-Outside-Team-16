@@ -10,16 +10,19 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   if (cartItems.length > 0) {
     qs(".button-panels").style.display = "inline-block";
-  }
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  qsa(".cart-card__remove").forEach((item) => {
-    item.addEventListener("click", (event) => {
-      event.preventDefault();
-      removeFromCart(event.target.getAttribute("data-id"));
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+    qsa(".cart-card__remove").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
+        removeFromCart(event.target.getAttribute("data-id"));
+      });
     });
-  });
-  showTotal(cartItems);
+    showTotal(cartItems);
+  } else {
+    showCartEmptyState();
+  }
+
   renderSuperscript();
 }
 
@@ -70,6 +73,40 @@ function cartItemTemplate(item) {
   <span class='cart-card__remove' data-id='${item.Id}'>❌</span>
 </li>`;
   return newItem;
+}
+
+function showCartEmptyState() {
+  let main = qs("main");
+
+  let divEmpty = document.createElement("div");
+  divEmpty.className = "empty-state";
+
+  let imgEmpty = document.createElement("img");
+  imgEmpty.setAttribute("src", "/images/cart-empty-state.png");
+  imgEmpty.setAttribute("height", 180);
+  imgEmpty.setAttribute("width", 180);
+  imgEmpty.setAttribute("alt", "Empty cart");
+  imgEmpty.setAttribute("loading", "lazy");
+  divEmpty.append(imgEmpty);
+
+  let h2Empty = document.createElement("h2");
+  h2Empty.textContent = "Your cart is empty";
+  divEmpty.append(h2Empty);
+
+  let pEmpty = document.createElement("p");
+  pEmpty.textContent =
+    "Looks like you have not added anything to your cart. Go ahead and explore ours categories.";
+  divEmpty.append(pEmpty);
+
+  let buttonEmpty = document.createElement("button");
+  buttonEmpty.textContent = "Go to categories page";
+  buttonEmpty.addEventListener("click", (e) => {
+    e.preventDefault();
+    location.href = "/index.html";
+  });
+  divEmpty.append(buttonEmpty);
+
+  main.append(divEmpty);
 }
 
 renderCartContents();
