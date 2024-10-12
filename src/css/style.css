@@ -299,6 +299,17 @@ decimals {
   font-size: smaller;
 }
 
+/*CART EMPTY STATE*/
+.empty-state {
+  max-width: 360px;
+  margin: 0 auto 72px auto;
+  text-align: center;
+}
+.empty-state button {
+  font-size: 16px;
+  border-radius: 4px;
+}
+
 /*CHECKOUT*/
 .order-summary {
   background-color: #efefef;
