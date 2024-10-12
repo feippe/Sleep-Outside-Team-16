@@ -1,9 +1,15 @@
-import { qs, loadHeaderFooter } from "./utils.mjs";
+import {
+  qs,
+  qsa,
+  loadHeaderFooter,
+  setLocalStorage,
+  alertMessage,
+} from "./utils.mjs";
+import { sendForm } from "./ExternalServices.mjs";
 import CheckoutProcess from "./CheckoutProcess.mjs";
 
-function sendForm(checkout) {
+function makeDataAndSendForm(chckt) {
   const url = "//server-nodejs.cit.byui.edu:3000/checkout/";
-  console.log(`send to: ${url}`);
   const firstName = qs("#txtFirstName").value;
   const lastName = qs("#txtLastName").value;
   const streetAddress = qs("#txtStreetAddress").value;
@@ -27,11 +33,11 @@ function sendForm(checkout) {
     expiration: `${expirationDateMonth}/${expirationDateYear}`,
     code: securityCode,
     items: [],
-    orderTotal: checkout.total,
-    shipping: checkout.shippingPrice,
-    tax: checkout.tax,
+    orderTotal: chckt.total,
+    shipping: chckt.shippingPrice,
+    tax: chckt.tax,
   };
-  checkout.list.forEach((item) => {
+  chckt.list.forEach((item) => {
     payload.items.push({
       id: item.Id,
       name: item.Name,
@@ -40,14 +46,14 @@ function sendForm(checkout) {
     });
   });
 
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  };
-  fetch(url, options);
+  try {
+    sendForm(url, "POST", payload).then(function (result) {
+      setLocalStorage("so-cart", []);
+      location.href = `/checkout/success.html?oid=${result.orderId}`;
+    });
+  } catch (err) {
+    alertMessage(err);
+  }
 }
 
 loadHeaderFooter();
@@ -55,7 +61,25 @@ loadHeaderFooter();
 let checkout = new CheckoutProcess();
 qs("#order-summary").innerHTML = checkout.html;
 
-qs("#btnFormSubmit").addEventListener("click", function (event) {
+qs("#btnFormSubmit").addEventListener("click", (event) => {
+  qsa(".alertMessage").forEach((e) => {
+    qs("main").removeChild(e);
+  });
+
+  let form = qs("#form-checkout");
   event.preventDefault();
-  sendForm(checkout);
+  const status = form.checkValidity();
+
+  let inputsToValidate = qsa("input[required]", form);
+  inputsToValidate.forEach((element) => {
+    if (!element.validity.valid) {
+      let info = element.getAttribute("data-info");
+      alertMessage(`The ${info} value is incorrect or is missing.`);
+    }
+  });
+
+  form.reportValidity();
+  if (status) {
+    makeDataAndSendForm(checkout);
+  }
 });

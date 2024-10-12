@@ -3,11 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Sleep Outside | Checkout</title>
-
     <link rel="stylesheet" href="/css/style.css" />
   </head>
 
@@ -25,11 +22,23 @@
           <fieldset id="customer-name">
             <label>
               First name
-              <input id="txtFirstName" type="text" value="Juan" required />
+              <input
+                id="txtFirstName"
+                type="text"
+                value=""
+                required
+                data-info="first name"
+              />
             </label>
             <label>
               Last name
-              <input id="txtLastName" type="text" value="Fernandez" required />
+              <input
+                id="txtLastName"
+                type="text"
+                value=""
+                required
+                data-info="last name"
+              />
             </label>
           </fieldset>
           <fieldset id="address">
@@ -38,21 +47,40 @@
               <input
                 id="txtStreetAddress"
                 type="text"
-                value="Una calle"
+                value=""
                 required
+                data-info="street address"
               />
             </label>
             <label>
               City
-              <input id="txtCity" type="text" value="Una ciudad" required />
+              <input
+                id="txtCity"
+                type="text"
+                value=""
+                required
+                data-info="city"
+              />
             </label>
             <label>
               State
-              <input id="txtState" type="text" value="Un estado" required />
+              <input
+                id="txtState"
+                type="text"
+                value=""
+                required
+                data-info="state"
+              />
             </label>
             <label>
               Zip code
-              <input id="txtZipCode" type="number" value="12900" required />
+              <input
+                id="txtZipCode"
+                type="number"
+                value=""
+                required
+                data-info="zip code"
+              />
             </label>
           </fieldset>
           <fieldset id="payment">
@@ -61,9 +89,10 @@
               <input
                 id="txtCreditCardNumber"
                 type="number"
-                value="1234123412341234"
+                value=""
                 maxlength="16"
                 required
+                data-info="credit card number"
               />
             </label>
             <label>
@@ -71,18 +100,20 @@
               <input
                 id="txtExpirationDateMonth"
                 type="number"
-                value="05"
+                value=""
                 placeholder="Month"
                 maxlength="2"
                 required
+                data-info="credit card's expiration month"
               />
               <input
                 id="txtExpirationDateYear"
                 type="number"
-                value="2026"
+                value=""
                 placeholder="Year"
                 maxlength="4"
                 required
+                data-info="credit card's expiration year"
               />
             </label>
             <label>
@@ -90,9 +121,10 @@
               <input
                 id="txtSecurityCode"
                 type="number"
-                value="123"
+                value=""
                 maxlength="3"
                 required
+                data-info="credit card's security code"
               />
             </label>
           </fieldset>

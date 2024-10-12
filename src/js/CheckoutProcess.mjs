@@ -21,7 +21,6 @@ export default class CheckoutProcess {
 
     calculateValues(){
         this.list.forEach((item) => {
-            //console.log(item.quantity);
             this.subtotal += item.FinalPrice * item.quantity;
             this.quantity += item.quantity;
         });

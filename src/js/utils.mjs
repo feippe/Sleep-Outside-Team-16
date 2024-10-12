@@ -89,3 +89,24 @@ export function formattedDecimals(number){
   val = val[0]+"<decimals>."+val[1]+"</decimals>";
   return val;
 }
+
+export function alertMessage(message, scroll=true){
+  let main = qs("main");
+  let messageElement = document.createElement("div");
+  messageElement.className = "alertMessage";
+  let textElement = document.createElement("div");
+  textElement.className = "alertMessage-value";
+  textElement.textContent = message;
+  messageElement.append(textElement);
+  let buttonElement = document.createElement("div");
+  buttonElement.className = "alertMessage-close";
+  buttonElement.textContent = "X";
+  buttonElement.addEventListener("click",(e) => {
+    main.removeChild(messageElement);
+  });
+  messageElement.append(buttonElement);
+  main.prepend(messageElement);
+  if(scroll){
+    window.scrollTo(0,0);
+  }
+}

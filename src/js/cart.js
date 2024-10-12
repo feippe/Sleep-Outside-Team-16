@@ -8,6 +8,9 @@ import {
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
+  if (cartItems.length > 0) {
+    qs(".button-panels").style.display = "inline-block";
+  }
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   qsa(".cart-card__remove").forEach((item) => {
