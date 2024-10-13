@@ -35,7 +35,7 @@ function showTotal(cartItems) {
         total += item.quantity * item.FinalPrice;
       }
     });
-    qs(".cart-footer .cart-total").textContent = `Total: $${total}`;
+    qs(".cart-footer .cart-total").textContent = `Total: $${total.toFixed(2)}`;
   } else {
     qs(".cart-footer").classList.add("hide");
   }
@@ -68,7 +68,9 @@ function cartItemTemplate(item) {
     <h2 class='card__name'>${item.Name}</h2>
   </a>
   <p class='cart-card__color'>${item.Colors[0].ColorName}</p>
-  <p class='cart-card__quantity'>qty: ${item.quantity}</p>
+  <label class='qty-label'>Quantity:
+    <input class='cart-card__quantity' type='number' id='${item.Id}' value='${item.quantity}'/>
+  </label>
   <p class='cart-card__price'>$${item.FinalPrice}</p>
   <span class='cart-card__remove' data-id='${item.Id}'>❌</span>
 </li>`;
@@ -77,6 +79,7 @@ function cartItemTemplate(item) {
 
 function showCartEmptyState() {
   let main = qs("main");
+  main.innerHTML = '';
 
   let divEmpty = document.createElement("div");
   divEmpty.className = "empty-state";
@@ -109,4 +112,38 @@ function showCartEmptyState() {
   main.append(divEmpty);
 }
 
+// function updateQuantity(id, quantity) {
+//   const cartItems = getLocalStorage("so-cart");
+//   let newList = [];
+//   cartItems.forEach((item) => {
+//     if (item.id === id) {
+//       item.quantity = quantity;
+//     }
+//     newList.push(item);
+//   });
+//   setLocalStorage("so-cart", newList);
+// }
+
 renderCartContents();
+
+const qtyInputs = document.querySelectorAll(".cart-card__quantity");
+
+qtyInputs.forEach(input => {
+  input.addEventListener("change", function () {
+    if (input.value == "0") {
+      alert("Product quantity must be greater than 0! Otherwise please use the X button to remove product from cart.")
+      input.value = 1
+    }
+    let id = input.getAttribute("id");
+    const cartItems = getLocalStorage("so-cart");
+    let newList = [];
+    cartItems.forEach(item => {
+      if (item.Id == id) {
+        item.quantity = parseInt(input.value);
+      }
+      newList.push(item);
+    });
+    setLocalStorage("so-cart", newList);
+    showTotal(cartItems);
+  });
+});
